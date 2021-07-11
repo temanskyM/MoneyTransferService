@@ -136,3 +136,7 @@ Temporary Items
 /**/*.iml
 /**/target/
 /**/node
+/.mvn/wrapper/
+/HELP.md
+/mvnw
+/mvnw.cmd
