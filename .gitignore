@@ -140,3 +140,6 @@ Temporary Items
 /HELP.md
 /mvnw
 /mvnw.cmd
+
+/**/build/
+/**/node/
