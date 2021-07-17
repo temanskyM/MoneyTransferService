@@ -17,58 +17,28 @@ paths:
         content:
           application/json:
             schema:
-              type: object
-              properties:
-                cardFromNumber:
-                  type: string
-                cardFromValidTill:
-                  type: string
-                cardFromCVV:
-                  type: string
-                cardToNumber:
-                  type: string
-                amount:
-                  type: object
-                  properties:
-                    value:
-                      type: integer
-                    currency:
-                      type: string
+              $ref: '#/components/schemas/transferReqDto'
       responses:
         '200':
           description: Success transfer
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  operationId:
-                    type: string
-                    description: Operation id
+                type: string
+                description: Operation id
+
         '400':
           description: Error input data
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error customer message
-                  id:
-                    type: integer
+                $ref: '#/components/schemas/errorDto'
         '500':
           description: Error transfer
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error customer message
-                  id:
-                    type: integer
+                $ref: '#/components/schemas/errorDto'
   /confirmOperation:
     post:
       summary: Confirm operation
@@ -79,46 +49,64 @@ paths:
         content:
           application/json:
             schema:
-              type: object
-              properties:
-                operationId:
-                  type: string
-                  description: Operation id
-                code:
-                  type: string
-                  description: Verification code
+              $ref: '#/components/schemas/confirmOperationReqDto'
+
       responses:
         '200':
           description: Success confirmation
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  operationId:
-                    type: string
-                    description: Operation id
+                type: string
+                description: Operation id
+
         '400':
           description: Error input data
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error customer message
-                  id:
-                    type: integer
+                $ref: '#/components/schemas/errorDto'
         '500':
           description: Error confirmation
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error customer message
-                  id:
-                    type: integer
+                $ref: '#/components/schemas/errorDto'
+
+components:
+  schemas:
+    transferReqDto:
+      type: object
+      properties:
+        cardFromNumber:
+          type: string
+        cardFromValidTill:
+          type: string
+        cardFromCVV:
+          type: string
+        cardToNumber:
+          type: string
+        amount:
+          type: object
+          properties:
+            value:
+              type: integer
+            currency:
+              type: string
+    errorDto:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Error customer message
+        id:
+          type: integer
+    confirmOperationReqDto:
+      type: object
+      properties:
+        operationId:
+          type: string
+          description: Operation id
+        code:
+          type: string
+          description: Verification code

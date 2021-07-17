@@ -1,15 +1,19 @@
 package ru.netology.moneytransferservice.rest;
 
+import lombok.RequiredArgsConstructor;
 import org.openapitools.api.TransferApi;
-import org.openapitools.model.InlineObject;
-import org.openapitools.model.InlineResponse200;
+import org.openapitools.model.TransferReqDto;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import ru.netology.moneytransferservice.service.TransferService;
 
 @Controller
+@RequiredArgsConstructor
 public class TransferController implements TransferApi {
+  private final TransferService transferService;
+
   @Override
-  public ResponseEntity<InlineResponse200> transferPost(InlineObject inlineObject) {
-    return TransferApi.super.transferPost(inlineObject);
+  public ResponseEntity<String> transferPost(TransferReqDto transferReqDto) {
+    return TransferApi.super.transferPost(transferReqDto);
   }
 }
