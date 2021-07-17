@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.openapitools.api.ConfirmOperationApi;
 import org.openapitools.model.ConfirmOperationReqDto;
 import org.openapitools.model.OperationDto;
+import org.openapitools.model.SuccessOperationDto;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import ru.netology.moneytransferservice.service.ConfirmOperationService;
@@ -14,8 +15,9 @@ public class ConfirmOperationController implements ConfirmOperationApi {
   private final ConfirmOperationService confirmOperationService;
 
   @Override
-  public ResponseEntity<OperationDto> confirmOperationPost(
+  public ResponseEntity<SuccessOperationDto> confirmOperationPost(
       ConfirmOperationReqDto confirmOperationReqDto) {
-    return ConfirmOperationApi.super.confirmOperationPost(confirmOperationReqDto);
-  }
+    SuccessOperationDto output = confirmOperationService.confirmOperationPost(confirmOperationReqDto);
+    return ResponseEntity.ok(output);
+}
 }

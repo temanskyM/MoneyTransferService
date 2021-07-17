@@ -24,7 +24,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/operationDto'
+                $ref: '#/components/schemas/successOperationDto'
 
         '400':
           description: Error input data
@@ -56,7 +56,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/operationDto'
+                $ref: '#/components/schemas/successOperationDto'
 
         '400':
           description: Error input data
@@ -85,13 +85,9 @@ components:
         cardToNumber:
           type: string
         amount:
-          type: object
-          properties:
-            value:
-              type: integer
-            currency:
-              type: string
-    operationDto:
+          $ref: '#/components/schemas/amountDto'
+
+    successOperationDto:
       type: object
       properties:
         operationId:
@@ -114,4 +110,12 @@ components:
         code:
           type: string
           description: Verification code
+    amountDto:
+      type: object
+      properties:
+        value:
+          type: integer
+        currency:
+          type: string
+
 
