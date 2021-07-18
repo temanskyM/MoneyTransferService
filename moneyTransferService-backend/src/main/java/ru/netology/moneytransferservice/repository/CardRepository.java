@@ -31,7 +31,7 @@ public class CardRepository {
     return Optional.ofNullable(cardMap.get(id));
   }
 
-  public void update(Card card) {
+  public void upsert(Card card) {
     cardMap.put(card.getId(), card);
   }
 }
