@@ -2,7 +2,6 @@ package ru.netology.moneytransferservice.repository;
 
 import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.atomic.AtomicInteger;
 import org.springframework.stereotype.Repository;
 import ru.netology.moneytransferservice.domain.Amount;
 import ru.netology.moneytransferservice.domain.Card;
@@ -14,14 +13,14 @@ public class CardRepository {
   static {
     final Card card = Card.builder()
         .id("1111111111111111")
-        .amount(new Amount(new AtomicInteger(1000), "RUR"))
+        .amount(new Amount(1000, "RUR"))
         .CVV("111")
         .till("11/21")
         .build();
     cardMap.put(card.getId(), card);
     final Card card2 = Card.builder()
         .id("2222222222222222")
-        .amount(new Amount(new AtomicInteger(0), "RUR"))
+        .amount(new Amount(0, "RUR"))
         .CVV("111")
         .till("11/21")
         .build();
