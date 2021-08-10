@@ -2,7 +2,6 @@ package ru.netology.moneytransferservice.rest;
 
 import lombok.RequiredArgsConstructor;
 import org.openapitools.api.TransferApi;
-import org.openapitools.model.OperationDto;
 import org.openapitools.model.SuccessOperationDto;
 import org.openapitools.model.TransferReqDto;
 import org.springframework.http.ResponseEntity;

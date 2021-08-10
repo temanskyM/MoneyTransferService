@@ -20,7 +20,7 @@ public class ConfirmOperationService {
 
   public SuccessOperationDto confirmOperationPost(ConfirmOperationReqDto confirmOperationReqDto) {
     final Operation operation = operationRepository.getById(confirmOperationReqDto.getOperationId())
-        .orElseThrow(() -> new IllegalArgumentException("Incorrect opertionId"));
+        .orElseThrow(() -> new IllegalArgumentException("Incorrect operationId"));
 
     if (!confirmOperationReqDto.getCode().equals(operation.getCode())) {
       failedCode(operation);
