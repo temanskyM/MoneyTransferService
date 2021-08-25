@@ -7,6 +7,7 @@ import org.openapitools.model.SuccessOperationDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import ru.netology.moneytransferservice.AbstractContainerTest;
 import ru.netology.moneytransferservice.domain.Amount;
 import ru.netology.moneytransferservice.domain.Operation;
 import ru.netology.moneytransferservice.domain.OperationContent;
@@ -19,8 +20,7 @@ import java.util.UUID;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
-@SpringBootTest
-class ConfirmOperationServiceTest {
+class ConfirmOperationServiceTest  extends AbstractContainerTest {
     @MockBean
     private OperationRepository operationRepository;
 

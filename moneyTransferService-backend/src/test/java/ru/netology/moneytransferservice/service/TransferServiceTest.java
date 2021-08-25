@@ -8,6 +8,7 @@ import org.openapitools.model.TransferReqDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import ru.netology.moneytransferservice.AbstractContainerTest;
 import ru.netology.moneytransferservice.domain.Amount;
 import ru.netology.moneytransferservice.domain.Card;
 import ru.netology.moneytransferservice.domain.Operation;
@@ -20,8 +21,7 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
-@SpringBootTest
-class TransferServiceTest {
+class TransferServiceTest extends AbstractContainerTest {
     @MockBean
     private CardRepository cardRepository;
 
